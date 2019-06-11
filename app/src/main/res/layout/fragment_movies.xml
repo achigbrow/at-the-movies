@@ -28,7 +28,7 @@
     android:ems="10"
     android:hint="Movie Title"
     android:inputType="textPersonName"
-    app:layout_constraintBottom_toTopOf="@+id/new_movie_button"
+    app:layout_constraintBottom_toTopOf="@+id/new_movie_screenwriter"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent" />
 
@@ -45,5 +45,25 @@
     app:layout_constraintHorizontal_bias="1.0"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent" />
+
+  <EditText
+    android:id="@+id/new_movie_screenwriter"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:hint="Screenwriter"
+    app:layout_constraintBottom_toTopOf="@+id/new_movie_genre"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"/>
+
+  <Spinner
+    android:id="@+id/new_movie_genre"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:layout_constraintBottom_toTopOf="@+id/new_movie_button"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"/>
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
