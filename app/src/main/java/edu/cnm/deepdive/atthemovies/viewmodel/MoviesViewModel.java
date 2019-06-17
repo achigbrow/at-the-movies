@@ -6,18 +6,21 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import edu.cnm.deepdive.atthemovies.MoviesDatabase;
 import edu.cnm.deepdive.atthemovies.model.Actor;
+import edu.cnm.deepdive.atthemovies.model.ActorMovieJoin;
 import edu.cnm.deepdive.atthemovies.model.Movie;
+
 import java.util.List;
 
 public class MoviesViewModel extends AndroidViewModel {
 
   private LiveData<List<Movie>> movies;
-  public LiveData<List<Actor>> actors;
+  private LiveData<List<Actor>> actors;
 
   public MoviesViewModel(@NonNull Application application) {
     super(application);
     MoviesDatabase db = MoviesDatabase.getInstance(application);
     movies = db.movieDao().getAll();
+    actors = db.actorDao().getAll();
   }
 
   public LiveData<List<Movie>> getMoviesLiveData() {
@@ -28,28 +31,40 @@ public class MoviesViewModel extends AndroidViewModel {
     return actors;
   }
 
-    public void addMovie(final Movie movie){
-      new Thread(new Runnable() {
-        @Override
-        public void run() {
-          MoviesDatabase db = MoviesDatabase.getInstance(getApplication());
-          db.movieDao().insert(movie);
-        }
-      }).start();
-    }
+  public void addMovie(final Movie movie){
+    new Thread(new Runnable() {
+      @Override
+      public void run() {
+        MoviesDatabase db = MoviesDatabase.getInstance(getApplication());
+        db.movieDao().insert(movie);
+      }
+    }).start();
+  }
 
-    public void addActor(final Actor actor) {
-      new Thread(new Runnable() {
-        @Override
-        public void run() {
-          MoviesDatabase db = MoviesDatabase.getInstance(getApplication());
-          db.actorDao().insert(actor);
-        }
-      }).start();
-    }
+  public void addActor(final Actor actor){
+    new Thread(new Runnable() {
+      @Override
+      public void run() {
+        MoviesDatabase db = MoviesDatabase.getInstance(getApplication());
+        db.actorDao().insert(actor);
+      }
+    }).start();
+  }
 
   public LiveData<Movie> getMovie(Long id){
     MoviesDatabase db = MoviesDatabase.getInstance(getApplication());
-    return db.movieDao().findByID(id);
+    return db.movieDao().findById(id);
+  }
+
+  public void addActorToMovie(final long movieId, final long id) {
+    new Thread(new Runnable() {
+      @Override
+      public void run() {
+        ActorMovieJoin actorMovieJoin = new ActorMovieJoin();
+        actorMovieJoin.setMovieId(movieId);
+        actorMovieJoin.setActorId(id);
+        MoviesDatabase.getInstance(getApplication()).actorMovieJoinDao().insert(actorMovieJoin);
+      }
+    }).start();
   }
 }
