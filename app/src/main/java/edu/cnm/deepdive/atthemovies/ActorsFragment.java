@@ -11,7 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
-import edu.cnm.deepdive.atthemovies.model.Actor;
+import edu.cnm.deepdive.atthemovies.model.entity.Actor;
 import edu.cnm.deepdive.atthemovies.viewmodel.ActorsViewModel;
 import edu.cnm.deepdive.atthemovies.viewmodel.MoviesViewModel;
 

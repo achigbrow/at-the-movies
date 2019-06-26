@@ -1,4 +1,4 @@
-package edu.cnm.deepdive.atthemovies.model;
+package edu.cnm.deepdive.atthemovies.model.entity;
 
 import androidx.room.Entity;
 import androidx.room.ForeignKey;

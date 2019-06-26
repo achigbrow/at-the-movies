@@ -12,12 +12,10 @@ import android.view.ViewGroup;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.navigation.Navigation;
-import edu.cnm.deepdive.atthemovies.model.Movie;
+import edu.cnm.deepdive.atthemovies.model.entity.Movie;
 import edu.cnm.deepdive.atthemovies.viewmodel.MoviesViewModel;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 
 /**

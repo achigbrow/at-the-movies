@@ -5,8 +5,8 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import edu.cnm.deepdive.atthemovies.MoviesDatabase;
-import edu.cnm.deepdive.atthemovies.model.Actor;
-import edu.cnm.deepdive.atthemovies.model.ActorMovieJoin;
+import edu.cnm.deepdive.atthemovies.model.entity.Actor;
+import edu.cnm.deepdive.atthemovies.model.entity.ActorMovieJoin;
 
 import java.util.List;
 

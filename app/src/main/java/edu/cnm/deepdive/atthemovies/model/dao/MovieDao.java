@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Query;
-import edu.cnm.deepdive.atthemovies.model.Movie;
+import edu.cnm.deepdive.atthemovies.model.entity.Movie;
 
 import java.util.List;
 
